@@ -4,10 +4,6 @@
  * (정렬을 사용하면 안됩니다.)
  * 강의 해결법
  * X
- * @param {*} a
- * @param {*} b
- * @param {*} c
- * @returns
  */
 function solution1(a, b, c) {
   let answer;

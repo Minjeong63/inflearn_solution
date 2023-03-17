@@ -5,9 +5,7 @@
  * 예를 들어, 7개의 자연수 12, 77, 38, 41, 53, 92, 85가 주어지면
  * 이들 중 홀수는 77, 41, 53, 85이므로 그 합은 256이 되고,
  * 홀수들 중 최소값은 41이 된다.
- *
- * @param {*} arr
- * @returns
+ * O
  */
 function solution(arr) {
   let answer = [0],
@@ -24,8 +22,6 @@ function solution(arr) {
 
 /**
  * 강의 해결법
- * @param {*} arr
- * @returns
  */
 function solution1(arr) {
   let answer = [],
@@ -43,4 +39,4 @@ function solution1(arr) {
   return answer;
 }
 
-console.log(solution1([12, 77, 38, 41, 53, 92, 85]));
+// console.log(solution1([12, 77, 38, 41, 53, 92, 85]));

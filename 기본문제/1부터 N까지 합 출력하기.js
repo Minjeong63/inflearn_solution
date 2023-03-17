@@ -2,8 +2,6 @@
  * 4번
  * 자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요.
  * O
- * @param {*} N
- * @returns
  */
 function solution(N) {
   let answer = 0;
@@ -16,8 +14,6 @@ function solution(N) {
 
 /**
  * 강의 해결법
- * @param {*} N
- * @returns
  */
 function solution1(N) {
   let answer = 0;
