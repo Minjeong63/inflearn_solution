@@ -37,4 +37,4 @@ function solution1(a, b) {
   }
   return answer;
 }
-console.log(solution1([2, 3, 3, 1, 3], [1, 1, 2, 2, 3]));
+// console.log(solution1([2, 3, 3, 1, 3], [1, 1, 2, 2, 3]));

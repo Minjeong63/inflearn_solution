@@ -10,7 +10,7 @@
  * 강의 해결법
  * X
  */
-function solution(arr) {
+function solution1(arr) {
   let answer = arr;
   let sum = arr.reduce((acc, cur) => acc + cur, 0);
 
