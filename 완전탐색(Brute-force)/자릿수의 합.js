@@ -24,10 +24,46 @@ function solution(arr) {
 }
 
 /**
- * 강의 해결법
+ * 강의 해결법1
  */
 function solution1(arr) {
-  let answer;
+  let answer,
+    max = Number.MIN_SAFE_INTEGER;
+  for (let x of arr) {
+    let sum = 0,
+      tmp = x;
+    while (tmp) {
+      sum += tmp % 10;
+      tmp = Math.floor(tmp / 10);
+    }
+    if (sum > max) {
+      max = sum;
+      answer = x;
+    } else if (sum === max) {
+      if (x > answer) answer = x;
+    }
+  }
   return answer;
 }
-// console.log(solution([128, 460, 603, 40, 521, 137, 123]));
+
+/**
+ * 강의 해결법2
+ */
+function solution2(arr) {
+  let answer,
+    max = Number.MIN_SAFE_INTEGER;
+  for (let x of arr) {
+    let sum = x
+      .toString()
+      .split("")
+      .reduce((acc, cur) => acc + Number(cur), 0);
+    if (sum > max) {
+      answer = x;
+      max = sum;
+    } else if (sum === max) {
+      if (x > answer) answer = x;
+    }
+  }
+  return answer;
+}
+// console.log(solution2([128, 460, 603, 40, 521, 137, 123]));

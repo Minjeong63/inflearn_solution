@@ -6,22 +6,44 @@
  * O
  */
 function solution(arr) {
-  let answer;
+  let answer = [];
   for (let i = 0; i < arr.length; i++) {
     let change = "";
     for (let j = String(arr[i]).length - 1; j >= 0; j--) {
       change += String(arr[i])[j];
     }
-    arr[i] = Number(change);
+    let reverseNum = Number(change);
+    for (let i = 2; i < reverseNum; i++) {
+      if (reverseNum % i === 0) break;
+      if (i === reverseNum - 1 && reverseNum % i !== 0) answer.push(reverseNum);
+    }
+    if (reverseNum === 1 || reverseNum === 2) answer.push(reverseNum);
   }
-  return arr;
+  return answer;
 }
 
 /**
  * 강의 해결법
  */
+function isPrime(num) {
+  if (num === 1) false;
+  for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
 function solution1(arr) {
-  let answer;
+  let answer = [];
+  for (let x of arr) {
+    let res = 0;
+    // let res = Number(x.toString().split("").reverse().join(""));
+    while (x) {
+      res = res * 10 + (x % 10);
+      x = parseInt(x / 10);
+    }
+    if (isPrime(res)) answer.push(res);
+  }
   return answer;
 }
-// console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]));
+// console.log(solution1([32, 55, 62, 20, 250, 370, 200, 30, 100]));
