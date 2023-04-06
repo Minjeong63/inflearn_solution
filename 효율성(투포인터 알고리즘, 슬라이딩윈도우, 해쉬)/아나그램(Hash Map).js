@@ -6,6 +6,7 @@
  * 즉 어느 한 단어를 재배열하면 상대편 단어가 될 수 있는 것을 아나그램이라고 합니다.
  * 길이가 같은 두 개의 단어가 주어지면 두 단어가 아나그램인지 판별하는 프로그램을 작성하세요.
  * 아나그램 판별시 대소문자가 구분됩니다.
+ * O
  */
 function solution(str1, str2) {
   let answer;
@@ -30,7 +31,7 @@ function solution(str1, str2) {
   }
   arr1.sort((a, b) => a[0].charCodeAt(0) - b[0].charCodeAt(0));
   arr2.sort((a, b) => a[0].charCodeAt(0) - b[0].charCodeAt(0));
-  
+
   if (String(arr1) === String(arr2)) answer = "YES";
   else answer = "NO";
 
@@ -41,8 +42,17 @@ function solution(str1, str2) {
  * 강의 해결법
  */
 function solution1(str1, str2) {
-  let answer;
+  let answer = "Yes";
+  let sH = new Map();
+  for (let x of str1) {
+    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+    else sH.set(x, 1);
+  }
+  for (let y of str2) {
+    if (sH.has(y) && sH.get(y) > 0) sH.set(y, sH.get(y) - 1);
+    else answer = "No";
+  }
   return answer;
 }
-// console.log(solution("AbaAeCe", "baeeACA"));
-// console.log(solution("abaCC", "Caaab"));
+// console.log(solution1("AbaAeCe", "baeeACA"));
+// console.log(solution1("abaCC", "Caaab"));
