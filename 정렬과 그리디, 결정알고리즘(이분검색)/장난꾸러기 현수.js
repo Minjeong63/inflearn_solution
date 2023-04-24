@@ -8,18 +8,14 @@
  * 선생님은 이 사실을 모르고 학생들에게 서있는 순서대로 번호를 부여했습니다.
  * 현수와 짝꿍이 자리를 바꾼 반 학생들의 일렬로 서있는 키 정보가 주어질 때
  * 현수가 받은 번호와 현수 짝꿍이 받은 번호를 차례로 출력하는 프로그램을 작성하세요.
- *
+ * O
  */
-function solution(n) {
-  let answer;
+function solution(arr) {
+  let answer = [];
+  let sortArr = arr.slice().sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== sortArr[i]) answer.push(i + 1);
+  }
   return answer;
 }
-
-/**
- * 강의 해결법
- */
-function solution1(n) {
-  let answer;
-  return answer;
-}
-console.log(solution([120, 125, 152, 130, 135, 135, 143, 127, 160]));
+// console.log(solution([120, 130, 150, 150, 130, 150]));
