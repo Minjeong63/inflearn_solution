@@ -9,19 +9,32 @@
  * 고민 끝에 지니레코드는 M개의 DVD에 모든 동영상을 녹화하기로 하였다.
  * 이 때 DVD의 크기(녹화 가능한 길이)를 최소로 하려고 한다.
  * 그리고 M개의 DVD는 모두 같은 크기여야 제조원가가 적게 들기 때문에 꼭 같은 크기로 해야 한다.
- *
+ * 강의 해결법
+ * X
  */
 function solution(m, songs) {
   let answer;
-  songs.sort((a, b) => a - b);
+  let lt = Math.max(...songs);
+  let rt = songs.reduce((a, b) => a + b, 0);
+  while (lt <= rt) {
+    let mid = parseInt((lt + rt) / 2);
+    if (count(songs, mid) <= m) {
+      answer = mid;
+      rt = mid - 1;
+    } else lt = mid + 1;
+  }
   return answer;
 }
 
-/**
- * 강의 해결법
- */
-function solution1(m, songs) {
-  let answer;
-  return answer;
+function count(songs, capacity) {
+  let cnt = 1;
+  let sum = 0;
+  for (let x of songs) {
+    if (sum + x > capacity) {
+      cnt++;
+      sum = x;
+    } else sum += x;
+  }
+  return cnt;
 }
-console.log(solution(3, [1, 2, 3, 4, 5, 6, 7, 8, 9]));
+// console.log(solution(3, [1, 2, 3, 4, 5, 6, 7, 8, 9]));
