@@ -17,7 +17,6 @@ function solution(arr, k, m) {
         DFS(L + 1, sum + arr[i], i + 1);
       }
     }
-    console.log(L, "1234");
   }
   DFS(0, 0, 0);
   return answer;
