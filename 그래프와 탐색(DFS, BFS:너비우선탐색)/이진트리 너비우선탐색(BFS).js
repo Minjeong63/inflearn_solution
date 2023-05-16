@@ -15,7 +15,6 @@ function solution1(n) {
     for (let nv of [v * 2, v * 2 + 1]) {
       if (nv > 7) continue;
       queue.push(nv);
-      console.log("ㅋㅋㅋㅋ", nv);
     }
   }
   return answer;
